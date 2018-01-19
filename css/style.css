@@ -1,0 +1,27 @@
+
+
+
+/* map */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  
+}
+
+header, section, footer {
+  padding: 0 0 0 300px;
+}
+section.map, #map {
+  height: 100%;
+}
+
+@media only screen and (max-width : 992px) {
+  header, section, footer {
+    padding-left: 0;
+  }
+}
+
+.fixed-action-btn {
+  right: calc( 50% - 28px);
+}
