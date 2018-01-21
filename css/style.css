@@ -21,7 +21,39 @@ section.map, #map {
     padding-left: 0;
   }
 }
+/**************info window *****************/
 
+.location-info a{
+color: black;
+
+}
+.location-info a{
+  color: teal;
+
+  }
+.location-info a:hover {
+  text-decoration: underline;
+
+}
+
+ /* ---------bottom button-------------- */
 .fixed-action-btn {
   right: calc( 50% - 28px);
+}
+
+/********** side nav*********************/
+.user-view {
+  position: relative;
+  height: 200px;
+}
+.user-view h1{
+  margin-top: 0px;
+  text-align: center;
+}
+
+.user-view{
+ background: url(../assets/car.jpg);
+ background-position-y: -100px;
+ background-repeat: no-repeat;
+
 }

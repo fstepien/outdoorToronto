@@ -1,20 +1,40 @@
 [
-  {
-    "coords":{"lat":43.6532,"lng":-79.3831},"iconImage":"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-    "content":{"location": "Toronto"
-      
-    }
-},
 {
-    "coords":{"lat":43.589,"lng":-79.6441},"iconImage":"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-    "content": {"location": "Mississauga"
-
-                }
+    "coords":{"lat":44.6296,"lng":-81.2651},
+    "iconImage":"assets/kite.png",
+    "content": {
+        "location": "Sauble Beach",
+        "mainInfo": "",
+        "linkText": "Local Kite School",
+        "link": "http://kiterider.ca/weekend-kite-camp/"
+                },
+    "season": {
+        "winter": false,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "activities1": "ski"
+    }            
 },
 {   "coords":{"lat":44.5405,"lng":-80.4081},
-    "iconImage":"https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
-    "content": {"location": "Collingwood"
-      
-    }
+    "iconImage":"assets/ski.png",
+    "content": {
+        "location": "Collingwood",
+        "mainInfo": "",
+        "linkText": "Blue Mountain Ski Resort",
+        "link": "https://www.bluemountain.ca/"
+    },
+    "season": {
+        "winter": true,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "activities1": "ski"
+    }                
+
+
+    
 }
 ]
