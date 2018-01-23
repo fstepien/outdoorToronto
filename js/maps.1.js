@@ -116,41 +116,13 @@ fetch('js/locations.json')
 .then((data) => {
   markersData = data;
   for (var i = 0; i < markersData.length; i++) {
-   
-    //Distance Request
-  let origin = new google.maps.LatLng(myLatLng.lat, myLatLng.lng);
-  let destination = new google.maps.LatLng(markersData[i].coords.lat,markersData[i].coords.lng);
-
- var service = new google.maps.DistanceMatrixService();
- service.getDistanceMatrix(
-   {
-     origins: [origin],
-     destinations: [destination],
-     travelMode: 'DRIVING'
-   }, callback);
-
-  let currentMarker = markersData[i];
-  function callback(response, status) {
-        if (status == 'OK') {
-          
-          let distance = response.rows[0].elements[0].distance.text;
-          let duration = response.rows[0].elements[0].duration.text;
-         
-          addMarker(currentMarker, distance, duration);
-          
-        }
-      }
-    
-    
-    
-    
     // Add marker
-    // addMarker(markersData[i]);
+    addMarker(markersData[i]);
   }
 })
 .catch((err) => {console.log(`Sorry, ${err}. Go to http://www.escapetorontonow.com/ for weekend ideas`)});
 
-function addMarker(properties, distance, duration) {
+function addMarker(properties) {
 
     let marker = new google.maps.Marker({
       position: properties.coords,
@@ -173,7 +145,7 @@ function addMarker(properties, distance, duration) {
                   
             <h4 class=title">${properties.content.location}</h4>
             <p><strong>Activities:</strong> ${properties.activities.a1} ${properties.activities.a2} ${properties.activities.a3} ${properties.activities.a4}</p>
-            <p><i class="material-icons">directions_car</i> Only ${distance} away, you can be here in ${duration}</p>
+            <p><i class="material-icons">directions_car</i> distance and travel time</p>
             <a class="btn-floating right waves-effect waves-light grey launch-modal" ${properties.content.modalNone}><i class="material-icons">add</i></a>
                 
             <div class="main-info">
@@ -200,3 +172,27 @@ function addMarker(properties, distance, duration) {
 
 /*******************DISTANCE****************************** */
 
+// let origin = new google.mapsLatLng(myLatLng.lat,myLatLng.lng);
+// let destination = new google.mapsLatLng(markerData[i].coords.lat,markersData[i].coords.lng);
+// var service = new google.maps.DistanceMatrixService();
+// service.getDistanceMatrix({
+//   origins: [origin],
+//   destinations: [myLatLong]
+// },callback);
+// function callback(response, status) {
+//   if (status == 'OK') {
+//     var origins = response.originAddresses;
+//     var destinations = response.destinationAddresses;
+
+//     for (var i = 0; i < origins.length; i++) {
+//       var results = response.rows[i].elements;
+//       for (var j = 0; j < results.length; j++) {
+//         var element = results[j];
+//         var distance = element.distance.text;
+//         var duration = element.duration.text;
+//         var from = origins[i];
+//         var to = destinations[j];
+//       }
+//     }
+//   }
+// }

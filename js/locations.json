@@ -1,12 +1,13 @@
 [
 {
-    "coords":{"lat":44.6296,"lng":-81.2651},
+    "coords":{"lat":44.745847,"lng":-81.287918},
     "iconImage":"assets/kite.png",
     "content": {
-        "location": "Sauble Beach",
-        "mainInfo": "",
+        "location": "Oliphant",
+        "mainInfo": "This is a popular kiteboarding area for beginners and a training spot for several kite schools. Shallow water and a sandy bottom make it ideal for the beginner to expert kiteboarder.",
         "linkText": "Local Kite School",
-        "link": "http://kiterider.ca/weekend-kite-camp/"
+        "link": "http://kiterider.ca/weekend-kite-camp/",
+        "proTip": "You can drive on the beach, but don't get stuck!"
                 },
     "season": {
         "winter": false,
@@ -14,16 +15,20 @@
     },            
     "activities":
     {
-        "activities1": "ski"
+        "a1": "kiteboaring,",
+        "a2": "",
+        "a3": "",
+        "a4": ""
     }            
 },
-{   "coords":{"lat":44.5405,"lng":-80.4081},
+{   "coords":{"lat":44.745847,"lng":-81.287918},
     "iconImage":"assets/ski.png",
     "content": {
-        "location": "Collingwood",
-        "mainInfo": "",
+        "location": "Blue",
+        "mainInfo": "Blue Mountain is an ski resort just northwest of Collingwood. Blue Mountain is an alpine ski resort in Ontario, Canada, just northwest of Collingwood.",
         "linkText": "Blue Mountain Ski Resort",
-        "link": "https://www.bluemountain.ca/"
+        "link": "https://www.bluemountain.ca/",
+        "proTip": "Scandinave Spa is a great place to relax après-ski, but book ahead of time"
     },
     "season": {
         "winter": true,
@@ -31,7 +36,10 @@
     },            
     "activities":
     {
-        "activities1": "ski"
+        "a1": "snowbaording,",
+        "a2": "skiing,",
+        "a3": "crosscountry,",
+        "a4": "mountain biking,"
     }                
 
 
