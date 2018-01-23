@@ -132,7 +132,6 @@ fetch('js/locations.json')
   let currentMarker = markersData[i];
   function callback(response, status) {
         if (status == 'OK') {
-          
           let distance = response.rows[0].elements[0].distance.text;
           let duration = response.rows[0].elements[0].duration.text;
          
@@ -197,6 +196,4 @@ function addMarker(properties, distance, duration) {
   }
 }
 
-
-/*******************DISTANCE****************************** */
 

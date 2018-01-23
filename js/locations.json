@@ -20,8 +20,8 @@
         "a3": "",
         "a4": ""
     }            
-},
-{   "coords":{"lat":44.745847,"lng":-81.287918},
+}, 
+{   "coords":{"lat":44.502455,"lng":-80.312779},
     "iconImage":"assets/ski.png",
     "content": {
         "location": "Blue",
@@ -41,8 +41,68 @@
         "a3": "crosscountry,",
         "a4": "mountain biking,"
     }                
-
-
-    
+},
+{   "coords":{"lat":43.280887,"lng":-79.978400},
+    "iconImage":"assets/hike.png",
+    "content": {
+        "location": "Tews Falls",
+        "mainInfo": "Tews Falls, is a 41 metre ribbon waterfall (only a few metres shorter than Niagara Falls), and is the tallest waterfall found in Hamilton, Ontario, Canada. Located at the Spencer Gorge / Webster's Falls Conservation Area in Greensville, its source is Logie's Creek.",
+        "linkText": "Bitten Escapes Blog",
+        "link": "http://www.bittenescapes.com/hikes/websters-tews-dundas-peak-hamilton",
+        "proTip": "Don't just look at the falls from the top, find a way down"
+    },
+    "season": {
+        "winter": false,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "a1": "hiking,",
+        "a2": "",
+        "a3": "",
+        "a4": ""
+    }                
+},
+{   "coords":{"lat":44.175801,"lng":-81.640475},
+    "iconImage":"assets/surf.png",
+    "content": {
+        "location": "Kincardine",
+        "mainInfo": "Kincardine is one of the most popular surf spots in Ontairo. Look for a steady north wind. Check out WestShore surf shop when you are in town.",
+        "linkText": "Visit Kincardine - Surf",
+        "link": "http://visitkincardine.ca/profile/kincardine-surfing/2343/",
+        "proTip": "Use the Kincardine Express (south pier_ to avoid paddling out through the surf"
+    },
+    "season": {
+        "winter": false,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "a1": "surfing,",
+        "a2": "",
+        "a3": "",
+        "a4": ""
+    }                
+},
+{   "coords":{"lat":44.525782,"lng":-76.530038},
+    "iconImage":"assets/camp.png",
+    "content": {
+        "location": "Frontenac",
+        "mainInfo": "Explore Frontenac's 5,355 hectares on the southern edge of the Canadian Shield. Open year-round for four season backcountry recreation  with48 interior campsites Canoe routes through 22 lakes and over 100 km of looped backpacking and hiking trails",
+        "linkText": "Friends of Frontenac",
+        "link": "http://visitkincardine.ca/profile/kincardine-surfing/2343/",
+        "proTip": "Use the Kincardine Express (south pier_ to avoid paddling out through the surf"
+    },
+    "season": {
+        "winter": true,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "a1": "camping,",
+        "a2": "hiking",
+        "a3": "padding",
+        "a4": ""
+    }                
 }
 ]
