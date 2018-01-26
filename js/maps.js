@@ -1,5 +1,7 @@
 let map;
-let myLatLng = { lat: 43.653226, lng: -79.383184 }
+// let myLatLng = { lat: 43.653226, lng: -79.383184 }
+const storage = new Storage();
+let myLatLng = storage.getLocationData();
 
 
 function initMap() {
@@ -98,7 +100,7 @@ function initMap() {
   });
   // ****************HOME MARKER/WINDOW**************
   var homeWindow = new google.maps.InfoWindow({
-    content: "<form id=\"newlocation\"><input  placeholder=\"change your location\"></input><button class=\"btn grey\" type=\"submit\"><i class=\"material-icons\">home</i></button><form>"
+    content: "<form id=\"newlocation\"><input id=\"new-home-input\" placeholder=\"change your location\"></input><button class=\"btn grey\" id=\"new-home-btn\" type=\"submit\"><i class=\"material-icons\">home</i></button><form>"
   });
   var home = new google.maps.Marker({
     position: myLatLng,
@@ -107,9 +109,41 @@ function initMap() {
     icon:"assets/home.png",
     
   });
+
+  var geocoder = new google.maps.Geocoder();
+
   home.addListener('click', function () {
     homeWindow.open(map, home);
+    // update location 
+    document.querySelector('#new-home-btn').addEventListener('click', (e) => {
+    e.preventDefault();  
+    geocodeAddress(geocoder, map);
+    
+    
   });
+
+
+  });
+  /*******************geocode address within submit************************ */
+  function geocodeAddress(geocoder, resultsMap) {
+    let newAddress = document.querySelector('#new-home-input').value;
+    console.log(newAddress);
+    geocoder.geocode({'address': newAddress}, function(results, status) {
+      if (status === 'OK') {
+        console.log(results[0].geometry.location);
+        console.log('just need lat and long from this object')
+        resultsMap.setCenter(results[0].geometry.location);
+        var marker = new google.maps.Marker({
+          map: resultsMap,
+          position: results[0].geometry.location
+        });
+      } else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+
+
  // ****************END HOME MARKER/WINDOW**************
 fetch('js/locations.json')
 .then(res => res.json())
