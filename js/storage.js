@@ -11,12 +11,12 @@ class Storage {
     if(localStorage.getItem('lat') === null){
         this.lat = this.defaultLat;
     } else {
-        this.lat = localStorage.getItem('lat');
+        this.lat = parseFloat(localStorage.getItem('lat'));
     }
     if(localStorage.getItem('lng') === null){
       this.lng = this.defaultLng;
   } else {
-      this.lng = localStorage.getItem('lng');
+      this.lng = parseFloat(localStorage.getItem('lng'));
   }
   return {
     lng: this.lng, 
@@ -25,7 +25,7 @@ class Storage {
   }
 
   setLocationDat(lat,lng){
-    localStorage.setItem('lat', lng);
+    localStorage.setItem('lat', lat);
     localStorage.setItem('lng', lng);
   }
 }

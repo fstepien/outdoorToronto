@@ -117,7 +117,7 @@ function initMap() {
     // update location 
     document.querySelector('#new-home-btn').addEventListener('click', (e) => {
     e.preventDefault();  
-    geocodeAddress(geocoder, map);
+    geocodeAddress(geocoder);
     
     
   });
@@ -125,18 +125,16 @@ function initMap() {
 
   });
   /*******************geocode address within submit************************ */
-  function geocodeAddress(geocoder, resultsMap) {
+  function geocodeAddress(geocoder) {
     let newAddress = document.querySelector('#new-home-input').value;
-    console.log(newAddress);
+    
     geocoder.geocode({'address': newAddress}, function(results, status) {
       if (status === 'OK') {
-        console.log(results[0].geometry.location);
-        console.log('just need lat and long from this object')
-        resultsMap.setCenter(results[0].geometry.location);
-        var marker = new google.maps.Marker({
-          map: resultsMap,
-          position: results[0].geometry.location
-        });
+        let homeLat = results[0].geometry.location.lat();
+        let homeLng = results[0].geometry.location.lng();
+        console.log("Current home coordinates: " + homeLat + "," + homeLng);
+        storage.setLocationDat(homeLat,homeLng);
+        location.reload();
       } else {
         alert('Geocode was not successful for the following reason: ' + status);
       }
