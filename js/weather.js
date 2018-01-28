@@ -16,3 +16,37 @@ changeLocation(city,state){
   this.state = state;
 }
 }
+class WeatherBox{
+  //Get time    
+paint(results){
+  
+for (let i = 0; i < 3; i++){
+let unix = results.list[i].dt;
+var date= new Date(unix*1000);
+var hours = date.getHours();
+var minutes = "0" + date.getMinutes();
+var seconds = "0" + date.getSeconds();
+var time = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+//Get Temp
+let tempC = Number(results.list[i].main.temp - 272.15).toFixed(1);
+//Get Wind
+let knots = Number(results.list[i].wind.speed *1.9438).toFixed(1);
+//Get Wind
+let wind = results.list[i].wind.deg;
+//Weather Description
+let conditions = results.list[i].weather[i].description;
+//Get Weather Icon ID
+let icon = results.list[i].weather[i].icon;
+
+let weatherInfo = {
+icon: icon,
+time: time,
+conditions: conditions,
+wind: wind,
+knots: knots,
+tempC: tempC
+};
+
+return weatherInfo;
+}
+}}

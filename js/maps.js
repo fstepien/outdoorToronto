@@ -2,38 +2,8 @@ let map;
 // let myLatLng = { lat: 43.653226, lng: -79.383184 }
 const storage = new Storage();
 let myLatLng = storage.getLocationData();
+const weatherBox = new WeatherBox();
 
-const weather = new Weather('43.65', '-79.38');
-  weather.getWeather()
-  .then(data => data.json())
-  .then(results => {
-    console.log(results);
-//Get time    
-let unix = results.list[0].dt;
-var date= new Date(unix*1000);
-var hours = date.getHours();
-var minutes = "0" + date.getMinutes();
-var seconds = "0" + date.getSeconds();
-var time = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-console.log("At: " +time);
-//Get Temp
-tempC = Number(results.list[0].main.temp -272.15).toFixed(1);
-console.log("temp: "+ tempC+"°C")
-//Get Wind
-knots = Number(results.list[0].wind.speed *1.9438).toFixed(1);
-console.log("Wind Speed: "+ knots+" knots")
-//Get Wind
-wind = results.list[0].wind.deg;
-console.log("Wind Direction: "+ wind)
-//Weather Description
-conditions = results.list[0].weather[0].description;
-console.log(conditions);
-//Get Weather Icon ID
-icon = results.list[0].weather[0].icon;
-console.log(icon);
-
-  })
-  .catch(err => console.log(err));
   
 
 function initMap() {
@@ -182,39 +152,48 @@ fetch('js/locations.json')
   //Start of marker for loop 
   for (var i = 0; i < markersData.length; i++) {
    
-    //Distance Request
+//GET DISTANCE to Marker Location
   let origin = new google.maps.LatLng(myLatLng.lat, myLatLng.lng);
   let destination = new google.maps.LatLng(markersData[i].coords.lat,markersData[i].coords.lng);
 
- var service = new google.maps.DistanceMatrixService();
- service.getDistanceMatrix(
-   {
-     origins: [origin],
-     destinations: [destination],
-     travelMode: 'DRIVING'
-   }, callback);
 
-  let currentMarker = markersData[i];
-  function callback(response, status) {
-        if (status == 'OK') {
-          let distance = response.rows[0].elements[0].distance.text;
-          let duration = response.rows[0].elements[0].duration.text;
-         
-          addMarker(currentMarker, distance, duration);
-          
-        }
-      }
-    
-    
-    
-    
-    
+   //GET WEATHER for Marker Location
+   const weather = new Weather(markersData[i].coords.lat, markersData[i].coords.lng);
+   let currentMarker = markersData[i];
+    weather.getWeather()
+          .then(data => data.json())
+          .then(results => {
+
+            let weatherInfo = weatherBox.paint(results);
+            var service = new google.maps.DistanceMatrixService();
+            service.getDistanceMatrix(
+              {
+                origins: [origin],
+                destinations: [destination],
+                travelMode: 'DRIVING'
+              }, callback);
+
+            
+            function callback(response, status) {
+                  if (status == 'OK') {
+                    let distance = response.rows[0].elements[0].distance.text;
+                    let duration = response.rows[0].elements[0].duration.text;
+                  
+                    addMarker(currentMarker, distance, duration, weatherInfo);
+                    
+                  }
+                }
+            
+          })
+   .catch(err => console.log(err)); 
+  
+
   }
   //End of marker for loop 
 })
 .catch((err) => {console.log(`Sorry, ${err}. Go to http://www.escapetorontonow.com/ for weekend ideas`)});
 
-function addMarker(properties, distance, duration) {
+function addMarker(properties, distance, duration, weatherInfo) {
 
     let marker = new google.maps.Marker({
       position: properties.coords,
@@ -227,6 +206,7 @@ function addMarker(properties, distance, duration) {
     if (properties.iconImage) {
       marker.setIcon(properties.iconImage);
     }
+    console.log(weatherInfo);
     if (properties.content) {
       var infoWindow = new google.maps.InfoWindow({
         content: `
@@ -247,8 +227,13 @@ function addMarker(properties, distance, duration) {
             </div>
             
           <div class="weather-container">
-              <div class="weather box">
-
+              <div class="weather-box">
+              <img src="http://openweathermap.org/img/w/${weatherInfo.icon}.png"><i class="material-icons medium" style="transform: rotate(${weatherInfo.wind}deg)">arrow_downward</i>
+              <ul>
+              <li>${weatherInfo.conditions} at ${weatherInfo.time}</li>
+              <li>Temperature: ${weatherInfo.tempC}°C</li>
+              <li>Wind Speed: ${weatherInfo.knots} knots</li>
+              </ul>
               </div>
           </div>
 
