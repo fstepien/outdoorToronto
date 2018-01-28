@@ -8,7 +8,7 @@ class Weather{
 }
 async getWeather(){
 
-  const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${this.lat}&lon=${this.lng}&appid=${this.apiKey}`);
+  const response = await fetch(`http://api.openweathermap.org/data/2.5/forecast?lat=${this.lat}&lon=${this.lng}&appid=${this.apiKey}`);
    return response;
 }
 changeLocation(city,state){

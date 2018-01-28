@@ -8,6 +8,30 @@ const weather = new Weather('43.65', '-79.38');
   .then(data => data.json())
   .then(results => {
     console.log(results);
+//Get time    
+let unix = results.list[0].dt;
+var date= new Date(unix*1000);
+var hours = date.getHours();
+var minutes = "0" + date.getMinutes();
+var seconds = "0" + date.getSeconds();
+var time = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+console.log("At: " +time);
+//Get Temp
+tempC = Number(results.list[0].main.temp -272.15).toFixed(1);
+console.log("temp: "+ tempC+"°C")
+//Get Wind
+knots = Number(results.list[0].wind.speed *1.9438).toFixed(1);
+console.log("Wind Speed: "+ knots+" knots")
+//Get Wind
+wind = results.list[0].wind.deg;
+console.log("Wind Direction: "+ wind)
+//Weather Description
+conditions = results.list[0].weather[0].description;
+console.log(conditions);
+//Get Weather Icon ID
+icon = results.list[0].weather[0].icon;
+console.log(icon);
+
   })
   .catch(err => console.log(err));
   
@@ -155,6 +179,7 @@ fetch('js/locations.json')
 .then(res => res.json())
 .then((data) => {
   markersData = data;
+  //Start of marker for loop 
   for (var i = 0; i < markersData.length; i++) {
    
     //Distance Request
@@ -183,9 +208,9 @@ fetch('js/locations.json')
     
     
     
-    // Add marker
-    // addMarker(markersData[i]);
+    
   }
+  //End of marker for loop 
 })
 .catch((err) => {console.log(`Sorry, ${err}. Go to http://www.escapetorontonow.com/ for weekend ideas`)});
 
@@ -220,7 +245,13 @@ function addMarker(properties, distance, duration) {
             <p><strong>Pro Tip:</strong> ${properties.content.proTip}</p>
             <p><strong>Local Resource: </strong><a href="${properties.content.link}" style="display:${properties.content.linkDisplay}" target="_blank">${properties.content.linkText}</a></p>
             </div>
-              
+            
+          <div class="weather-container">
+              <div class="weather box">
+
+              </div>
+          </div>
+
             </div>
           </div>
         
