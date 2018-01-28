@@ -3,6 +3,14 @@ let map;
 const storage = new Storage();
 let myLatLng = storage.getLocationData();
 
+const weather = new Weather('43.65', '-79.38');
+  weather.getWeather()
+  .then(data => data.json())
+  .then(results => {
+    console.log(results);
+  })
+  .catch(err => console.log(err));
+  
 
 function initMap() {
 
