@@ -185,7 +185,7 @@ fetch('js/locations.json')
                 }
             
           })
-   .catch(err => console.log(err)); 
+  //  .catch(err => console.log(err)); 
   
 
   }
@@ -206,7 +206,6 @@ function addMarker(properties, distance, duration, weatherInfo) {
     if (properties.iconImage) {
       marker.setIcon(properties.iconImage);
     }
-    console.log(weatherInfo);
     if (properties.content) {
       var infoWindow = new google.maps.InfoWindow({
         content: `
@@ -215,10 +214,10 @@ function addMarker(properties, distance, duration, weatherInfo) {
               
                 
                   
-            <h4 class=title">${properties.content.location}</h4>
+            <h4 class="title">${properties.content.location}</h4>
             <p><strong>Activities:</strong> ${properties.activities.a1} ${properties.activities.a2} ${properties.activities.a3} ${properties.activities.a4}</p>
             <p><i class="material-icons">directions_car</i> Only ${distance} away, you can be here in ${duration}</p>
-            <a class="btn-floating right waves-effect waves-light grey launch-modal" ${properties.content.modalNone}><i class="material-icons">add</i></a>
+           
                 
             <div class="main-info">
             <p>${properties.content.mainInfo}</p>
@@ -226,16 +225,7 @@ function addMarker(properties, distance, duration, weatherInfo) {
             <p><strong>Local Resource: </strong><a href="${properties.content.link}" style="display:${properties.content.linkDisplay}" target="_blank">${properties.content.linkText}</a></p>
             </div>
             
-          <div class="weather-container">
-              <div class="weather-box">
-              <img src="http://openweathermap.org/img/w/${weatherInfo.icon}.png"><i class="material-icons medium" style="transform: rotate(${weatherInfo.wind}deg)">arrow_downward</i>
-              <ul>
-              <li>${weatherInfo.conditions} at ${weatherInfo.time}</li>
-              <li>Temperature: ${weatherInfo.tempC}°C</li>
-              <li>Wind Speed: ${weatherInfo.knots} knots</li>
-              </ul>
-              </div>
-          </div>
+            ${weatherInfo}
 
             </div>
           </div>

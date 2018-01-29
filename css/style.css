@@ -33,7 +33,13 @@ color: black;
   }
     .location-info a:hover {
   text-decoration: underline;
-
+}
+.location-info p{
+  position: relative;
+}
+.location-info i:first-child{
+  position: relative;
+  bottom: -3px;
 }
 #newlocation{
   overflow: hidden;
@@ -41,6 +47,53 @@ color: black;
 }
 #newlocation form{
 margin: auto;
+}
+
+.gm-style-iw {
+  border-radius: 2px 2px 10px 10px; 
+}
+.title {
+  color: teal;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  
+}
+.weather-container{
+  display: flex;
+  flex-direction: row;
+}
+@media(max-width: 500px){
+  .weather-container{
+    flex-direction: column;
+  }
+  .icons-info{
+    display: flex;
+    flex-direction: row;
+    }
+    .weather-box{
+      margin-top: 15px;
+    }
+}
+.weather-box{
+  margin-right: 20px;
+  padding: 5px;
+  border: solid lightgray 1px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px grey;
+}
+.weather-box h5{
+  font-weight: 300;
+  text-align: center;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+
+}
+.condition {
+  text-transform: capitalize;
 }
  /* ---------bottom button-------------- */
 .fixed-action-btn {

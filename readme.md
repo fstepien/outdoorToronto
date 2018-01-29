@@ -11,3 +11,5 @@ A Toronto based adventure guide.
 + JavaScript
   - Google Maps API
   - Goole Maps Distance Matrix API
+  - OpenWeatherMap API
++ Location Data from locaiton.json
