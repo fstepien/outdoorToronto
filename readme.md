@@ -3,6 +3,8 @@ outdoorToronto
 
 [Live Link](oto.filipstepien.com)
 
+![](http://oto.filipstepien.com/assets/screenshot.jpg)
+
 A Toronto based adventure guide. 
 
 :surfer: :ski: :snowboarder: :evergreen_tree: :sunrise_over_mountains:
