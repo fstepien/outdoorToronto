@@ -25,7 +25,7 @@
     "iconImage":"assets/ski.png",
     "content": {
         "location": "Blue",
-        "mainInfo": "Blue Mountain is an ski resort just northwest of Collingwood. Blue Mountain is an alpine ski resort in Ontario, Canada, just northwest of Collingwood.",
+        "mainInfo": "Blue Mountain is an ski resort just northwest of Collingwood. The area offers a variety of activities downhill, cross country, mountain top skating, snowshowing, hiking & caving. A popular downhill mountain biking destination in the summer.",
         "linkText": "Blue Mountain Ski Resort",
         "link": "https://www.bluemountain.ca/",
         "proTip": "Scandinave Spa is a great place to relax après-ski, but book ahead of time"
@@ -102,6 +102,90 @@
         "a1": "camping,",
         "a2": "hiking",
         "a3": "padding",
+        "a4": ""
+    }                
+},
+{   "coords":{"lat":44.046370,"lng":-80.061381},
+    "iconImage":"assets/hike.png",
+    "content": {
+        "location": "Mono Cliffs",
+        "mainInfo": "Mono Cliffs is located on the picturesque Bruce Trail. Numerous hiking trails throughout the park",
+        "linkText": "Ontario Parks trailmap",
+        "link": "https://www.ontarioparks.com/park/monocliffs/maps",
+        "proTip": "Walk thorugh a vanyon the spillway trail, then have lunch at the Mono Cliffs Inn on the south side of the park"
+    },
+    "season": {
+        "winter": true,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "a1": "hiking,",
+        "a2": "skiing",
+        "a3": "snowshoing",
+        "a4": "biking"
+    }                
+},
+{   "coords":{"lat":42.858852,"lng":-79.058062},
+    "iconImage":"assets/surf.png",
+    "content": {
+        "location": "Crystal Beach",
+        "mainInfo": "One of many surf spots on Lake Erier that forms waves on a consistant SW wind. Contact Surf the Greats for more about lake surfing and forcasting workshops",
+        "linkText": "Surf the Greats",
+        "link": "https://surfthegreats.org/",
+        "proTip": "Pier offers protection from the wind and cleaner waves when it's rough at other sponts on Lake Erie"
+    },
+    "season": {
+        "winter": true,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "a1": "surfing,",
+        "a2": "kiting",
+        "a3": "paddling",
+        "a4": ""
+    }                
+},
+{   "coords":{"lat":43.672031, "lng":-80.444414},
+    "iconImage":"assets/hike.png",
+    "content": {
+        "location": "Elora Gorge",
+        "mainInfo": "The Elora Gorge is one of the most beautiful and spectacular natural area in the Grand River valley. The Grand River rushes past 22-metre high cliffs. Riverside trails (with safety barriers) and scenic overlooks provide hikers with stunning views of the water far below where kayakers and tubers make their way through the rapids.",
+        "linkText": "Grand River Conservation Authority",
+        "link": "https://www.grandriver.ca/en/outdoor-recreation/Elora-Gorge.aspx",
+        "proTip": "Tubing down the river is a fun and exciting way to see the wonders of the Elora Gorge, it can get busy so arrive early. "
+    },
+    "season": {
+        "winter": true,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "a1": "hiking,",
+        "a2": "camping",
+        "a3": "cycling",
+        "a4": "tubing"
+    }                
+},
+{   "coords":{"lat":44.468047, "lng":-79.158809},
+    "iconImage":"assets/kite.png",
+    "content": {
+        "location": "9th Concession",
+        "mainInfo": "Nice and shallow water for a long way out with sandy bottom, lots of parking and a grassy set up area similar to Keswick but much larger. Trees along the shore line make assisted or drift launching necessary. Usually a number of wind surfers but lots of room for everyone. Read LSK write up for more details:",
+        "linkText": "Local Kite Spots - 9th Concession",
+        "link": "http://localkitespots.com/kitesurfing/vmap.aspx?site=1204146203442",
+        "proTip": "Bes on W wind, NW can be very gusty, SW can send you into the weeds if not sufficiently powered "
+    },
+    "season": {
+        "winter": true,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "a1": "kiting,",
+        "a2": "",
+        "a3": "",
         "a4": ""
     }                
 }
