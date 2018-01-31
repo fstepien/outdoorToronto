@@ -1,7 +1,7 @@
 outdoorToronto
 ==============
 
-[Live Link](oto.filipstepien.com)
+[Live Link](http://oto.filipstepien.com)
 
 A Toronto based adventure guide. 
 
