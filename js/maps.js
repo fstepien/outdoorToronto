@@ -114,7 +114,12 @@ function initMap() {
 
   var geocoder = new google.maps.Geocoder();
 
-  home.addListener('click', function () {
+  home.addListener('click', openHome);
+  
+  const homeNav = document.querySelector('.update-home');
+  homeNav.addEventListener('click', openHome);
+
+function openHome() {
     homeWindow.open(map, home);
     // update location 
     document.querySelector('#new-home-btn').addEventListener('click', (e) => {
@@ -125,7 +130,7 @@ function initMap() {
   });
 
 
-  });
+  }
   /*******************geocode address within submit************************ */
   function geocodeAddress(geocoder) {
     let newAddress = document.querySelector('#new-home-input').value;
