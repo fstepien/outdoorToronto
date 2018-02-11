@@ -15,7 +15,7 @@
     },            
     "activities":
     {
-        "a1": "kiteboaring,",
+        "a1": "kiteboarding",
         "a2": "",
         "a3": "",
         "a4": ""
@@ -36,10 +36,10 @@
     },            
     "activities":
     {
-        "a1": "snowbaording,",
-        "a2": "skiing,",
-        "a3": "crosscountry,",
-        "a4": "mountain biking,"
+        "a1": "snowboarding",
+        "a2": "skiing",
+        "a3": "crosscountry",
+        "a4": "mountain biking"
     }                
 },
 {   "coords":{"lat":43.280887,"lng":-79.978400},
@@ -57,7 +57,7 @@
     },            
     "activities":
     {
-        "a1": "hiking,",
+        "a1": "hiking",
         "a2": "",
         "a3": "",
         "a4": ""
@@ -78,7 +78,7 @@
     },            
     "activities":
     {
-        "a1": "surfing,",
+        "a1": "surfing",
         "a2": "",
         "a3": "",
         "a4": ""
@@ -99,9 +99,9 @@
     },            
     "activities":
     {
-        "a1": "camping,",
+        "a1": "camping",
         "a2": "hiking",
-        "a3": "padding",
+        "a3": "paddling",
         "a4": ""
     }                
 },
@@ -120,9 +120,9 @@
     },            
     "activities":
     {
-        "a1": "hiking,",
+        "a1": "hiking",
         "a2": "skiing",
-        "a3": "snowshoing",
+        "a3": "snowshoeing",
         "a4": "biking"
     }                
 },
@@ -141,8 +141,8 @@
     },            
     "activities":
     {
-        "a1": "surfing,",
-        "a2": "kiting",
+        "a1": "surfing",
+        "a2": "kiteboarding",
         "a3": "paddling",
         "a4": ""
     }                
@@ -162,7 +162,7 @@
     },            
     "activities":
     {
-        "a1": "hiking,",
+        "a1": "hiking",
         "a2": "camping",
         "a3": "cycling",
         "a4": "tubing"
@@ -183,7 +183,49 @@
     },            
     "activities":
     {
-        "a1": "kiting,",
+        "a1": "kiteboarding",
+        "a2": "",
+        "a3": "",
+        "a4": ""
+    }                
+},
+{   "coords":{"lat":43.506275, "lng": -80.495197},
+    "iconImage":"assets/paddle.png",
+    "content": {
+        "location": "Grand River",
+        "mainInfo": "Stretches of the Grand River are suitable for paddlers of all levels. White-water enthusiasts flock to the Elora Gorge, while those interested in a more tranquil journey can pick from any number of stretches of this 300-kilometre-long river. Whatever you are looking for, it's always important that you plan your trip and learn as much as you can about the section of the river that you intend to paddle. Grand River Conservation has detailed routes and current water level information. COntact Best of the Grand or Grand Experiences if you need lessons or rentals.",
+        "linkText": "Multiple Routes from Waterloo Wellington Canoe & Kayak Club",
+        "link": "https://sites.google.com/site/waterloowellingtoncanoeclubca/home/maps#Grand_River",
+        "proTip": "Head to St. Jacobs market after paddling for some apple fritters"
+    },
+    "season": {
+        "winter": true,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "a1": "paddling",
+        "a2": "",
+        "a3": "",
+        "a4": ""
+    }                
+},
+{   "coords":{"lat":43.649377, "lng": -79.492368},
+    "iconImage":"assets/paddle.png",
+    "content": {
+        "location": "Humber River",
+        "mainInfo": "A fun paddling spot in the city. You'll feel like you are in cottage country as soon as you're on the water. Launch under the Bloor bridge, you can paddle out to the lake. Watch for a south wind which will form waves at the mouth of the river",
+        "linkText": "Toronto Adventure Rentals",
+        "link": "http://torontoadventures.ca/humberriverrentalsinfo/",
+        "proTip": "Bring some cash in a dry bag to refuel at Sunnyside park."
+    },
+    "season": {
+        "winter": true,
+        "summer": true    
+    },            
+    "activities":
+    {
+        "a1": "paddling",
         "a2": "",
         "a3": "",
         "a4": ""

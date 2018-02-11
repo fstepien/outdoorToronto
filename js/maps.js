@@ -3,8 +3,30 @@ let map;
 const storage = new Storage();
 let myLatLng = storage.getLocationData();
 const weatherBox = new WeatherBox();
+var markers = [];
+let activityFilter = [];
 
-  
+//Required for marker selection 
+const checkboxes = document.querySelectorAll('input');
+checkboxes.forEach(box => box.addEventListener('change', boxChange))
+
+function boxChange(e) {
+  if(e.target.checked){
+  activityFilter.push(e.target.id);
+  console.log(activityFilter);
+  initMap();
+  } else {
+   const index = activityFilter.findIndex(act => act === e.target.id);
+   activityFilter.splice(index, 1);
+   console.log(activityFilter);
+   initMap();
+  }
+}
+
+
+function checkChange() {
+  console.log(100); 
+};
 
 function initMap() {
 
@@ -153,9 +175,18 @@ function openHome() {
 fetch('js/locations.json')
 .then(res => res.json())
 .then((data) => {
-  markersData = data;
+
+ let markersData = data;
+ 
   //Start of marker for loop 
   for (var i = 0; i < markersData.length; i++) {
+    // if no filter values activityFilter is 0, if values show up as "act"
+  if(activityFilter == 0 || Object.values(markersData[i]['activities'])
+   .some(act => {
+     if(activityFilter.some(actFilter => actFilter === act)){
+       return true;
+     }
+   })){
    
 //GET DISTANCE to Marker Location
   let origin = new google.maps.LatLng(myLatLng.lat, myLatLng.lng);
@@ -193,7 +224,7 @@ fetch('js/locations.json')
   //  .catch(err => console.log(err)); 
   
 
-  }
+  }}
   //End of marker for loop 
 })
 .catch((err) => {console.log(`Sorry, ${err}. Go to http://www.escapetorontonow.com/ for weekend ideas`)});
@@ -206,6 +237,16 @@ function addMarker(properties, distance, duration, weatherInfo) {
       title: `${properties.content.location}`,
 
     });
+    //added to add commas after activities with css ::after
+    let a1 = "none";
+
+    let a2 = "none";
+    if(properties.activities.a2 !== ""){a1 = "yes"};
+    let a3 = "none";
+    if(properties.activities.a3 !== ""){a2 = "yes"};
+    let a4 = "none";
+    if(properties.activities.a4 !== ""){a3 = "yes"};
+    
 
     //Set outside to prevent undefined properties in marker
     if (properties.iconImage) {
@@ -213,14 +254,17 @@ function addMarker(properties, distance, duration, weatherInfo) {
     }
     if (properties.content) {
       var infoWindow = new google.maps.InfoWindow({
-        content: `
+
+         content: `
             <div class="row">
             <div class="col s12 m12 location-info">
-              
-                
-                  
             <h4 class="title">${properties.content.location}</h4>
-            <p><strong>Activities:</strong> ${properties.activities.a1} ${properties.activities.a2} ${properties.activities.a3} ${properties.activities.a4}</p>
+            <p class="activity-list"><strong>Activities:</strong> 
+            <span class="activity-${a1}">${properties.activities.a1}</span> 
+            <span class="activity-${a2}">${properties.activities.a2}</span> 
+            <span class="activity-${a3}">${properties.activities.a3}</span> 
+            <span class="activity-${a4}">${properties.activities.a4}</span>
+            </p>
             <p><i class="material-icons">directions_car</i> Only ${distance} away, you can be here in ${duration}</p>
            
                 
@@ -243,8 +287,10 @@ function addMarker(properties, distance, duration, weatherInfo) {
         infoWindow.open(map, marker);
       });
     }
-
+    markers.push(marker);
   }
 }
+
+
 
 

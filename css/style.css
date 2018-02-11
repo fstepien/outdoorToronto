@@ -23,6 +23,10 @@ section.map, #map {
 }
 /**************info window *****************/
 
+.activity-list .activity-yes::after{
+  content: ", ";
+}
+
 .location-info a{
 color: black;
 
